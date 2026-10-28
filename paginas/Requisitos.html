@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos - Dashboard de Nómina NetPlus</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Requisitos del sistema</h1>
+        <p>Dashboard de Nómina NetPlus</p>
+    </header>
+
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="requisitos.html">Requisitos</a>
+        <a href="tecnologias.html">Tecnologías</a>
+        <a href="https://www.figma.com/make/7AKRoXZukgIyuk3YPqdWda/Prototipo-Dashboard-N%C3%B3mina-NetPlus?t=QDPHhIcqvmiUIDkV-1" target="_blank">Figma</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Requisitos funcionales</h2>
+            <ul>
+                <li><b>RF-001 - Autenticación de Usuario:</b> CUANDO el usuario ingrese credenciales válidas, EL SISTEMA DEBE otorgar acceso al panel principal en menos de 2 segundos. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-002 - Control de Acceso por Rol:</b> CUANDO un usuario autenticado acceda al sistema, EL SISTEMA DEBE mostrar únicamente las opciones permitidas para su rol (Talento Humano, Contabilidad o Gerencia). <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-003 - Configuración de Conexión:</b> EL SISTEMA DEBE permitir configurar los datos de conexión a Z-BioTime (servidor y credenciales). <span class="etiqueta">Won&#x27;t Have (Postergado)</span></li>
+                <li><b>RF-004 - Sincronización de Marcaciones:</b> CUANDO el usuario de Talento Humano solicite actualizar los datos, EL SISTEMA DEBE obtener las marcaciones desde Z-BioTime para el rango de fechas seleccionado. <span class="etiqueta">Won&#x27;t Have (Postergado)</span></li>
+                <li><b>RF-005 - Sincronización Programada:</b> MIENTRAS el sistema esté en ejecución, EL SISTEMA DEBE sincronizar las marcaciones nuevas diariamente a una hora configurada. <span class="etiqueta">Won&#x27;t Have (Postergado)</span></li>
+                <li><b>RF-006 - Manejo de Fallos de Importación:</b> CUANDO la importación del archivo falle, EL SISTEMA DEBE mostrar un mensaje de error y conservar los últimos datos importados. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-007 - Carga de Marcaciones desde Excel:</b> EL SISTEMA DEBE permitir cargar el archivo Excel de marcaciones exportado de Z-BioTime. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-008 - Cálculo de Jornada:</b> EL SISTEMA DEBE calcular por empleado y por día la hora de entrada, la hora de salida y las horas trabajadas. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-009 - Control de Puntualidad:</b> CUANDO la hora de entrada supere el horario establecido más la tolerancia, EL SISTEMA DEBE clasificar el registro como atraso. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-010 - Control de Asistencia:</b> CUANDO un empleado no tenga marcaciones en un día laborable, EL SISTEMA DEBE registrarlo como falta. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-011 - Reporte Diario:</b> CUANDO el usuario seleccione una fecha, EL SISTEMA DEBE mostrar el reporte diario de asistencia y puntualidad. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-012 - Reporte Mensual:</b> CUANDO el usuario seleccione un mes, EL SISTEMA DEBE mostrar el consolidado mensual por empleado (atrasos, faltas y horas trabajadas). <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-013 - Dashboard de Indicadores:</b> EL SISTEMA DEBE presentar indicadores de asistencia y puntualidad en un dashboard con gráficos. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RF-014 - Exportación de Reportes:</b> CUANDO el usuario solicite exportar un reporte, EL SISTEMA DEBE generar un archivo Excel descargable. <span class="etiqueta">Could Have (Opcional)</span></li>
+                <li><b>RF-015 - Gestión de Usuarios:</b> CUANDO el administrador registre o desactive un usuario, EL SISTEMA DEBE asignarle un rol y actualizar su acceso de inmediato. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-016 - Configuración de Horarios:</b> EL SISTEMA DEBE permitir definir el horario laboral y la tolerancia de atraso por empleado o grupo. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-017 - Calendario de Feriados:</b> EL SISTEMA DEBE permitir registrar feriados y días no laborables. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RF-018 - Permisos y Justificaciones:</b> CUANDO Talento Humano registre un permiso o justificación para un empleado, EL SISTEMA DEBE excluir ese día del conteo de faltas y atrasos. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RF-019 - Cálculo de Horas Extra:</b> CUANDO las horas trabajadas en un día superen la jornada establecida, EL SISTEMA DEBE registrar el excedente como horas extra. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RF-020 - Marcaciones Incompletas:</b> CUANDO un empleado tenga una sola marcación en el día, EL SISTEMA DEBE marcar el registro como incompleto y señalarlo a Talento Humano. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-021 - Depuración de Duplicados:</b> CUANDO existan marcaciones del mismo empleado con menos de 1 minuto de diferencia, EL SISTEMA DEBE considerarlas una sola. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RF-022 - Filtros de Reporte:</b> CUANDO el usuario aplique filtros por empleado, departamento o rango de fechas, EL SISTEMA DEBE actualizar el reporte con los resultados. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RF-023 - Detalle de Marcaciones:</b> CUANDO el usuario seleccione un empleado, EL SISTEMA DEBE mostrar todas sus marcaciones con fecha y hora. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RF-024 - Bitácora de Importaciones:</b> CUANDO finalice una importación, EL SISTEMA DEBE registrar fecha, usuario, resultado y cantidad de marcaciones importadas. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RF-025 - Cierre de Sesión:</b> MIENTRAS el usuario tenga una sesión activa, CUANDO permanezca inactivo 15 minutos, EL SISTEMA DEBE cerrar la sesión automáticamente. <span class="etiqueta">Should Have (Deseable)</span></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Requisitos no funcionales</h2>
+            <ul>
+                <li><b>RNF-001 - Confidencialidad de Datos:</b> EL SISTEMA DEBE almacenar las contraseñas de los usuarios cifradas (hash) y permitir el acceso a la información de nómina solo a usuarios autenticados. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RNF-002 - Procesamiento de Marcaciones:</b> EL SISTEMA DEBE procesar 10 000 marcaciones en menos de 10 segundos. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RNF-003 - Facilidad de Uso:</b> EL SISTEMA DEBE permitir al usuario generar un reporte en máximo 3 clics. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RNF-004 - Comunicación Segura:</b> EL SISTEMA DEBE transmitir los datos entre el navegador y el servidor mediante HTTPS. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>RNF-005 - Bloqueo por Intentos Fallidos:</b> CUANDO un usuario falle 5 veces seguidas al iniciar sesión, EL SISTEMA DEBE bloquear su acceso durante 15 minutos. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RNF-006 - Respaldo de Información:</b> EL SISTEMA DEBE realizar un respaldo diario de su base de datos. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RNF-007 - Disponibilidad:</b> MIENTRAS sea horario laboral, EL SISTEMA DEBE estar disponible al menos el 99% del tiempo. <span class="etiqueta">Should Have (Deseable)</span></li>
+                <li><b>RNF-008 - Compatibilidad y Diseño Adaptable:</b> EL SISTEMA DEBE funcionar en las últimas versiones de Chrome, Edge y Firefox y adaptarse a pantallas de escritorio y tablet. <span class="etiqueta">Should Have (Deseable)</span></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Restricciones</h2>
+            <ul>
+                <li><b>REST-001 - Fuente de Datos:</b> EL SISTEMA DEBE obtener las marcaciones únicamente del reporte de marcaciones exportado desde Z-BioTime (v8.0.8). <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>REST-002 - Plataforma:</b> EL SISTEMA DEBE desarrollarse como una aplicación web accesible desde navegador. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+                <li><b>REST-003 - Integridad de Marcaciones:</b> EL SISTEMA DEBE acceder a las marcaciones de Z-BioTime en modo solo lectura, sin modificarlas. <span class="etiqueta">Must Have (Obligatorio)</span></li>
+            </ul>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <p>NETPLUS</p>
+    </footer>
+
+</body>
+</html>
