@@ -25,10 +25,10 @@
         <section>
             <h2>Frontend</h2>
             <ul>
-                <li><b>React con Vite:</b> para construir las pantallas del sistema.</li>
+                <li><b>React con Vite:</b> para construir las pantallas del sistema. Funciona en Chrome, Edge y Firefox.</li>
                 <li><b>React Router:</b> para moverse entre las páginas (inicio, reportes, configuraciones).</li>
                 <li><b>Axios:</b> para comunicar el frontend con el backend.</li>
-                <li><b>Bootstrap:</b> para el diseño y que se adapte a escritorio y tablet.</li>
+                <li><b>Bootstrap:</b> para el diseño, personalizado con los colores corporativos de NetPlus.</li>
                 <li><b>Recharts:</b> para los gráficos de asistencia y puntualidad.</li>
             </ul>
         </section>
@@ -37,17 +37,20 @@
             <h2>Backend</h2>
             <ul>
                 <li><b>Node.js con Express:</b> servidor y API del sistema.</li>
-                <li><b>Multer y xlsx:</b> para subir y leer el Excel de marcaciones.</li>
-                <li><b>bcrypt y JSON Web Token:</b> para el login, las contraseñas cifradas y las sesiones.</li>
+                <li><b>Multer:</b> para subir el archivo Excel de marcaciones, validando su tipo y tamaño.</li>
+                <li><b>ExcelJS:</b> para leer el Excel exportado de Z-BioTime (todos los empleados en una hoja o una hoja por empleado) y para exportar los reportes a Excel.</li>
+                <li><b>Zod:</b> para validar las columnas del archivo y los datos que llegan al sistema.</li>
+                <li><b>bcrypt y JSON Web Token:</b> para el login, las contraseñas cifradas, las sesiones y los permisos según el rol (Recursos Humanos y Contabilidad).</li>
                 <li><b>dotenv y cors:</b> variables secretas y comunicación con el frontend.</li>
-                <li><b>dayjs:</b> para calcular horas, atrasos y fechas.</li>
+                <li><b>dayjs:</b> para calcular horas, atrasos y fechas, con la zona horaria de Ecuador.</li>
             </ul>
         </section>
 
         <section>
             <h2>Base de datos</h2>
             <ul>
-                <li><b>PostgreSQL:</b> guarda usuarios, marcaciones, horarios, feriados y la bitácora de importaciones.</li>
+                <li><b>PostgreSQL:</b> guarda usuarios, marcaciones, horarios, feriados, permisos, horas extra y la bitácora de importaciones.</li>
+                <li><b>pg con Knex:</b> conecta el servidor con PostgreSQL, permite importar marcaciones por lotes y con transacciones, y guarda los cambios de la base en migraciones.</li>
             </ul>
         </section>
 
